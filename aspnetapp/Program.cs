@@ -1,5 +1,9 @@
+using DockerWeb.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
+
+builder.Services.AddControllers();
 // Add services to the container.
 builder.Services.AddRazorPages();
 
@@ -13,6 +17,15 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.MapGet("/asd", HelloHandler.Hello);
+
+DefaultFilesOptions defaultFilesOptions = new DefaultFilesOptions();
+defaultFilesOptions.DefaultFileNames.Clear();
+defaultFilesOptions.DefaultFileNames.Add("index.html");
+app.UseDefaultFiles(defaultFilesOptions);
+
+
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -21,5 +34,18 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
-
+app.MapControllers();
 app.Run();
+
+
+
+
+
+
+
+
+
+
+
+
+
