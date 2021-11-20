@@ -8,20 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="ComHelper\**" />
-    <Compile Remove="Controllers\**" />
-    <Content Remove="ComHelper\**" />
-    <Content Remove="Controllers\**" />
-    <EmbeddedResource Remove="ComHelper\**" />
-    <EmbeddedResource Remove="Controllers\**" />
-    <None Remove="ComHelper\**" />
-    <None Remove="Controllers\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Models\histoyapi.cs" />
-    <Compile Remove="Models\sz.cs" />
-    <Compile Remove="ScheduleManage.cs" />
+    <PackageReference Include="MongoDB.Bson" Version="2.13.2" />
+    <PackageReference Include="MongoDB.Driver" Version="2.13.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="StackExchange.Redis" Version="2.2.88" />
   </ItemGroup>
 
 </Project>
