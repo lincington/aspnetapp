@@ -35,7 +35,7 @@ namespace DockerWeb
 
         public void Debug(string msg, Exception err)
         {
-            logger.Debug(msg, err);
+       
         }
 
         public void Info(string msg, params object[] args)

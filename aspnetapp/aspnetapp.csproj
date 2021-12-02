@@ -9,12 +9,14 @@
 
   <ItemGroup>
     <PackageReference Include="FreeSql" Version="2.6.100" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="6.0.0" />
     <PackageReference Include="MongoDB.Bson" Version="2.13.2" />
     <PackageReference Include="MongoDB.Driver" Version="2.13.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="NLog" Version="4.7.12" />
     <PackageReference Include="Quartz" Version="3.3.3" />
     <PackageReference Include="StackExchange.Redis" Version="2.2.88" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
 </Project>

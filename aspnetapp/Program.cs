@@ -1,8 +1,15 @@
+using aspnetapp.Models;
 using DockerWeb.Models;
+
+using Microsoft.Extensions.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Logging.ClearProviders();
+builder.Logging.AddLog4Net();
 
+builder.Services.AddSignalR();
+builder.Services.AddHostedService<Worker>();
 builder.Services.AddControllers();
 // Add services to the container.
 builder.Services.AddRazorPages();
@@ -19,10 +26,14 @@ if (!app.Environment.IsDevelopment())
 
 app.MapGet("/asd", HelloHandler.Hello);
 
-DefaultFilesOptions defaultFilesOptions = new DefaultFilesOptions();
-defaultFilesOptions.DefaultFileNames.Clear();
-defaultFilesOptions.DefaultFileNames.Add("index.html");
-app.UseDefaultFiles(defaultFilesOptions);
+//DefaultFilesOptions defaultFilesOptions = new DefaultFilesOptions();
+//defaultFilesOptions.DefaultFileNames.Clear();
+//defaultFilesOptions.DefaultFileNames.Add("index.html");
+//app.UseDefaultFiles(defaultFilesOptions);
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 
 
@@ -35,6 +46,13 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 app.MapControllers();
+
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapHub<ClockHub>("/hubs/clock");
+});
+
 app.Run();
 
 

@@ -8,6 +8,13 @@ namespace DockerWeb.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly ILogger<ValuesController> _logger;
+
+        public ValuesController(ILogger<ValuesController> logger)
+        {
+            _logger = logger;
+        }
+
         // GET: api/<ValuesController>
         [HttpGet]
         public IEnumerable<string> Get()

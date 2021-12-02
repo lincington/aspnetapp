@@ -8,10 +8,11 @@ namespace DockerWeb.ComHelper
     public class ConnHelper
     {
 
-        static  MongoDBHelper mongoDBHelper = null;
-        static  SqlServerDbHelper sqlServerDbHelper = null;
-        string MonConnectionString = AppConfigurtaionServices.Configuration.GetSection("DatabaseSettings:MonConnectionString").Value;
-        string SqlServerConnectionString= AppConfigurtaionServices.Configuration.GetSection("DatabaseSettings:SqlServerConnectionString").Value;
+        static  MongoDBHelper? mongoDBHelper ;
+        static  SqlServerDbHelper? sqlServerDbHelper;
+        string MonConnectionString = AppConfigurtaionServices.Configuration.GetSection("DatabaseSettings:MongodbConnection").Value;
+        string SqlServerConnectionString= AppConfigurtaionServices.Configuration.GetSection("DatabaseSettings:SqlServerConnection").Value;
+        string MysqlConnectionString = AppConfigurtaionServices.Configuration.GetSection("DatabaseSettings:MysqlConnectionString").Value;
         public  ConnHelper()
         {
             try
