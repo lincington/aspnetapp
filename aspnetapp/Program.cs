@@ -1,9 +1,18 @@
+using aspnetapp.Data;
 using aspnetapp.Models;
 using DockerWeb.Models;
-
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+// Add services to the container.
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseMySQL(connectionString));
+
 
 builder.Logging.ClearProviders();
 builder.Logging.AddLog4Net();
